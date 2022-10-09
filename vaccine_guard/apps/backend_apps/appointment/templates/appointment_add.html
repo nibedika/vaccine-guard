@@ -1,0 +1,74 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-advance-area">
+
+            <!-- ======== START OF HEADER SECTION ========= -->
+            {% include "includes/menubar.html" %}
+            <!-- ======== END OF HEADER SECTION =========== -->
+
+
+            <!-- Single pro tab start-->
+            <div class="single-product-tab-area mg-b-30">
+                <!-- Single pro tab review Start-->
+                <div class="single-pro-review-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="review-tab-pro-inner">
+                                    <ul id="myTab3" class="tab-review-design">
+                                        <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Add Appointment </a></li>
+                                    </ul>
+
+                                    <form id="" method="POST" action="" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div id="myTabContent" class="tab-content custom-product-edit">
+                                            <div class="product-tab-list tab-pane fade active in" id="description">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="text-center">
+                                                            <input type="submit" name="appointment_add" value="Book New Appointment" class="btn btn-lg btn-success btn-ctl-bt waves-effect m-r-10">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form><br><br><hr><br>
+
+                                    <section style="color: #fff;">
+                                        <h1>Vaccine Procedure</h1>
+                                        <p>After taking appointment for the vaccine the Vaccine Guard Org. team will send you notification about your vaccine card through email. Then you can view the vaccine schedules by loging into our official website and can download your vaccine card for taking the dose from our clinic. Later on when you will take the dose you will be updated through email also and will be able to download your vaccine certificate. Thank you.</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

@@ -1,0 +1,68 @@
+{% load static %}
+<div class="header-top-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="header-top-wraper">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                            <div class="menu-switcher-pro">
+                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                    <i class="icon nalika-menu-task"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <div class="header-right-info">
+                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                    <li class="nav-item">
+                                        <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                            <i class="fa fa-user"></i> &nbsp; Profile &nbsp; | &nbsp;
+                                            <span class="admin-name"> {{ menuData.email }}</span>
+                                            <i class="icon nalika-down-arrow nalika-angle-dw"></i>
+                                        </a>
+
+                                        <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                            {% if menuData.designation == 'admin' %}
+                                            <li>
+                                                <a target="_blank" href="{% url 'sign_up' %}"><span class="icon nalika-home author-log-ic"></span> Register</a>
+                                            </li>
+                                            {% endif %}
+
+                                            {% if menuData.designation == 'user' %}
+                                            <li>
+                                                <a target="_blank" href="{% url 'user_sign_up' %}"><span class="icon nalika-home author-log-ic"></span> Register</a>
+                                            </li>
+                                            {% endif %}
+
+                                            <li>
+                                                <a target="_blank" href="{% url 'view_profile' %}"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
+                                            </li>
+
+                                            <li>
+                                                <a target="_blank" href="{% url 'edit_profile' %}"><span class="icon nalika-settings author-log-ic"></span> Settings</a>
+                                            </li>
+
+                                            {% if menuData.designation == 'admin' %}
+                                            <li>
+                                                <a href="{% url 'sign_out' %}"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                            </li>
+                                            {% endif %}
+
+                                            {% if menuData.designation == 'user' %}
+                                            <li>
+                                                <a href="{% url 'user_sign_out' %}"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                            </li>
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

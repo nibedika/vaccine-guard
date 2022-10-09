@@ -1,0 +1,7 @@
+
+Technology Used: 
+---------------------------- 
+For Backend        : Python Framework - Django 
+For Frontend       : jQuery & Other Javascript Libraries 
+For DBMS           : noSQL - MongoDB 
+Related Technology : HTML, CSS, Bootstrap and so on.

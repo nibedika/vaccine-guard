@@ -1,0 +1,71 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="{% url 'home' %}"><img class="main-logo" src="{% static 'img/logo/logo.png' %}" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-advance-area">
+
+            <!-- ======== START OF HEADER SECTION ========= -->
+            {% include "includes/menubar.html" %}
+            <!-- ======== END OF HEADER SECTION =========== -->
+
+            <div class="single-product-tab-area mg-t-0 mg-b-30">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+    						<div class="single-product-pr">
+    							<div class="row">
+    								<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+    									<div id="myTabContent1" class="tab-content">
+    										<div class="product-tab-list tab-pane fade active in" id="single-tab1">
+                                                <h1>&nbsp;</h1>
+                                                <h1>&nbsp;</h1>
+    											<img src="{{ MEDIA_URL }}profile_img/{{ menuData.profile_picture }}" style="padding-left: 100px;" alt="" />
+    										</div>
+    									</div>
+    								</div>
+
+    								<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" style="min-height: 100vh !important;">
+    									<div class="single-product-details res-pro-tb">
+    										<h1>&nbsp;</h1>
+                                            <h1>&nbsp;</h1>
+                                            <h1>&nbsp;</h1>
+                                            <h1>{{ menuData.name | title }}</h1><hr>
+    										<div class="single-pro-cn">
+    											<h3>Username : </h3><p>{{ menuData.username }}</p><hr>
+                                                <h3>Email : </h3><p>{{ menuData.email }}</p><hr>
+                                                <h3>Designation : </h3><p>{{ menuData.designation }}</p>
+    										</div>
+    									</div>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single pro tab End-->
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

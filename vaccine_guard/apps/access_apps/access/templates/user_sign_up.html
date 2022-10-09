@@ -1,0 +1,90 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+    <div class="color-line"></div>
+    <div style="background-image: url('{% static 'img/log_img/sign_up_img.jpg' %}'); background-repeat: no-repeat; background-position: center; background-size: cover; height: 100vh;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="back-link back-backend">
+                        <a href="{% url 'user_sign_in' %}" class="btn btn-primary">Back to Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+                <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="text-center custom-login">
+                        <h1>&nbsp;</h1>
+                        <h2 style="color: #fff; text-shadow: 0 0 5px #FF0000;">User Registration</h2><br>
+                    </div>
+                    <div class="hpanel">
+                        <div class="panel-body" style="background-image: linear-gradient(#ffffff , rgba(255, 255, 255, .8)) !important; background: none; padding: 5%;">
+                            <form id="login_form" method="POST" action="">
+                                {% csrf_token %}
+
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label>Full Name</label>
+                                        <input type="text" name="name" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Mobile</label>
+                                        <input type="text" name="mobile" class="form-control">
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Gender</label>
+                                        <select name="gender" class="form-control">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Birth Date</label>
+                                        <input type="text" name="birth_date" value="{% now 'Y-m-d' %}" class="form-control">
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Username</label>
+                                        <input type="text" name="username" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Email Address</label>
+                                        <input type="text" name="email" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Password</label>
+                                        <input type="password" name="password" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Repeat Password</label>
+                                        <input type="password" name="confirmed_pass" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <input type="submit" name="sign_up" value="Register" class="btn btn-success loginbtn">
+                                    <button class="btn btn-default">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

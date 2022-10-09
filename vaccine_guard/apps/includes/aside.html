@@ -1,0 +1,124 @@
+{% load static %}
+<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+        <div class="sidebar-header">
+            <a href="{% url 'home' %}"><img class="main-logo" src="{% static 'img/logo/logo.png' % }" alt="" /></a>
+            <strong><img src="{% static 'img/logo/logosn.png' %}" alt="" /></strong>
+        </div>
+    	<div class="nalika-profile">
+    		<div class="profile-dtl">
+    			<a href="#"><img src="{{ MEDIA_URL }}profile_img/{{ menuData.profile_picture }}" alt="" /></a>
+    			<h2><span class="min-dtn">{{ menuData.name | title }}</span></h2>
+    		</div>
+    		<div class="profile-social-dtl">
+    			<ul class="dtl-social">
+    				<li><a href="#"><i class="icon nalika-facebook"></i></a></li>
+    				<li><a href="#"><i class="icon nalika-twitter"></i></a></li>
+    				<li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
+    			</ul>
+    		</div>
+    	</div>
+
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    {% if menuData.designation == 'admin' %}
+                    <li>
+                        <a href="{% url 'home' %}" class="btn btn-primary">
+                            Dashboard
+                        </a>
+                    </li>
+                    {% endif %}
+
+
+                    {% if menuData.designation == 'user' %}
+                    <hr>
+                    <li>
+                        <a href="{% url 'add_appointment' %}">
+    						<i class="icon nalika-home icon-wrap"></i>
+    						<span class="mini-click-non">Add Appointment</span>
+    					</a>
+                    </li>
+
+                    {% if cardData %}
+                    <li>
+                        <a href="{% url 'view_user_card' menuData.id %}">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Card</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'view_user_vaccine' menuData.id %}">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Certificate</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% endif %}
+
+
+                    {% if menuData.designation == 'admin' %}
+                    <li>
+                        <a href="{% url 'all_appointment' %}">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Appointment List</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Vaccine Card</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_card' %}"><span class="mini-sub-pro">Add Card</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_card' %}"><span class="mini-sub-pro">Card List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'all_vaccine' %}">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Vaccine List</span>
+                        </a>
+                    </li><hr>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Vaccine Supplier</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_supplier' %}"><span class="mini-sub-pro">Add Supplier</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_supplier' %}"><span class="mini-sub-pro">Supplier List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Vaccine Collection</span>
+                        </a>
+
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Product Edit" href="{% url 'add_collection' %}"><span class="mini-sub-pro">Add Collection</span></a></li>
+                            <li><a title="Product List" href="{% url 'all_collection' %}"><span class="mini-sub-pro">Collection List</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'stock' %}">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Vaccine Stock</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>

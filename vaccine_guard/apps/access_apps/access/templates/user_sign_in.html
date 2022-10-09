@@ -1,0 +1,45 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+    <div class="color-line"></div>
+    <div style="background-image: url('{% static 'img/log_img/sign_up_img.jpg' %}'); background-repeat: no-repeat; background-position: center; background-size: cover; height: 100vh;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                <div class="col-md-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="text-center m-b-md custom-login">
+                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;</h1>
+                        <h2 style="color: #fff; text-shadow: 0 0 5px #FF0000;">User Login</h2><br>
+                    </div>
+                    <div class="hpanel">
+                        <div class="panel-body" style="background-image: linear-gradient(#ffffff , rgba(255, 255, 255, .8)) !important; background: none; padding: 8%;">
+                            <form id="login_form" method="POST" action="">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label class="control-label" for="username">Username</label>
+                                    <input type="text" title="Please enter you username" required value="" name="username" id="username" class="form-control">
+                                    <span class="help-block small">Your unique username to app</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="password">Password</label>
+                                    <input type="password" title="Please enter your password" placeholder="******" required value="" name="password" id="password" class="form-control">
+                                    <span class="help-block small">Your strong password</span>
+                                </div>
+                                <input type="submit" name="sign_in" value="Login" class="btn btn-success btn-block loginbtn">
+                                <a class="btn btn-default btn-block" href="{% url 'user_sign_up' %}">Register</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->

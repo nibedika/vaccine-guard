@@ -1,0 +1,124 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-advance-area">
+
+            <!-- ======== START OF HEADER SECTION ========= -->
+            {% include "includes/menubar.html" %}
+            <!-- ======== END OF HEADER SECTION =========== -->
+
+            <div class="single-product-tab-area mg-t-0 mg-b-30">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px;">
+                            <button onclick="DownloadAsImage()" type="button" class="btn btn-lg btn-success">Download Card</button>
+                        </div>
+
+                        <div class="col-lg-12">
+    						<div class="single-product-pr">
+    							<div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background: #fff;" id="table-card">
+                                        <div class="review-tab-pro-inner" style="background: #fff;">
+                                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                                    <div class="row text" style="background: #fff; color: #1b2a47 !important;">
+
+                                                        <h1>Card Info</h1><br>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top: -33px;">
+                                                            <div class="review-content-section text-center">
+                                                                <h4><img width="100px" src="{{ MEDIA_URL }}profile_img/{{ cardData.appointment_id.user_id.profile_picture }}"></h4><hr>
+                                                                <h4>Name : <small style="color: #1b2a47;">{{ cardData.appointment_id.user_id.name }}</small></h4><hr>
+                                                                <p style="color: #1b2a47;">
+                                                                    <b>Gender : </b>{{ cardData.appointment_id.user_id.gender | title }} &nbsp; &nbsp;
+                                                                    <b>Birth Date : </b>{{ cardData.appointment_id.user_id.birth_date }}
+                                                                </p><hr>
+                                                                <p style="color: #1b2a47;">
+                                                                    <b>Mobile : </b>{{ cardData.appointment_id.user_id.mobile }} &nbsp; &nbsp;
+                                                                    <b>Email : </b>{{ cardData.appointment_id.user_id.email }}
+                                                                </p><hr>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                                                            <div class="review-content-section">
+                                                                <h3>Vaccine Date Infomation</h3><br><br>
+                                                                <h4>Appointment Date : <small style="color: #1b2a47;">{{ cardData.appointment_id.appointment_date }}</span></h4><hr>
+                                                                <h4>Dose One Date : 
+                                                                    <small style="color: #1b2a47;">{{ cardData.dose_one_date }}</small>
+                                                                    <span style="width: 70px; height: 26px; border: 1px solid #ccc; float: right;"></span>
+                                                                    <small style="float: right; line-height: 25px;">Status : &nbsp;</small>
+                                                                </h4><br>
+                                                                <h4>Dose Two Date : 
+                                                                    <small style="color: #1b2a47;">{{ cardData.dose_two_date }}</small>
+                                                                    <span style="width: 70px; height: 26px; border: 1px solid #ccc; float: right;"></span>
+                                                                    <small style="float: right; line-height: 25px;">Status : &nbsp;</small>
+                                                                </h4><br>
+                                                                <h4>Dose Three Date : 
+                                                                    <small style="color: #1b2a47;">{{ cardData.dose_three_date }}</small>
+                                                                    <span style="width: 70px; height: 26px; border: 1px solid #ccc; float: right;"></span>
+                                                                    <small style="float: right; line-height: 25px;">Status : &nbsp;</small>
+                                                                </h4><br>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    							</div>
+    						</div>
+    					</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single pro tab End-->
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
+
+<script type="text/javascript">
+    function downloadURI(uri, name) {
+        var link      = document.createElement("a");
+        link.download = name;
+        link.href     = uri;
+
+        document.body.appendChild(link);
+        link.click();
+        clearDynamicLink(link); 
+    }
+
+    function DownloadAsImage() {
+        var element = $("#table-card")[0];
+        html2canvas(element).then(function (canvas) {
+            var myImage = canvas.toDataURL();
+            downloadURI(myImage, "card.png");
+        });
+    }
+</script>

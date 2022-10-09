@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Vaccine Guard</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+        <link href="{% static 'frontend/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'frontend/css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'frontend/css/magnific-popup.css' %}" rel="stylesheet">
+
+        <link href="{% static 'frontend/css/templatemo-first-portfolio-style.css' %}" rel="stylesheet">
+    </head>
+    
+    <body>
+        <section class="preloader">
+            <div class="spinner">
+                <span class="spinner-rotate"></span>    
+            </div>
+        </section>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a href="#section_1" class="navbar-brand mx-auto mx-lg-0">VaccineGuard</a>
+
+                <div class="d-flex align-items-center d-lg-none">
+                    <!-- <i class="navbar-icon bi-telephone-plus me-3"></i> -->
+                    <a href="{% url 'add_appointment' %}" class="custom-btn btn">
+                        Take Appointment
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5">
+                        <li class="nav-item">
+                            <a style="font-size: 14px;" class="nav-link click-scroll" href="#section_1">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="font-size: 14px;" class="nav-link click-scroll" href="#section_2">About</a>
+                        </li>
+
+                        {% if menuData %}
+                            {% if menuData.designation == 'user' and cardData != '' %}
+                            <li class="nav-item">
+                                <a style="font-size: 14px;" class="nav-link" href="{% url 'view_user_card' menuData.id %}">Card</a>
+                            </li>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if menuData %}
+                            {% if menuData.designation == 'user' and cardData != '' %}
+                            <li class="nav-item">
+                                <a style="font-size: 14px;" class="nav-link" href="{% url 'view_user_vaccine' menuData.id %}">Certificate</a>
+                            </li>
+                            {% endif %}
+                        {% endif %}
+
+                        <li class="nav-item">
+                            <a style="font-size: 14px;" class="nav-link click-scroll" href="#section_4">Services</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="font-size: 14px;" class="nav-link" href="{% url 'user_sign_up' %}">Register</a>
+                        </li>
+
+                        {% if menuData %}
+                            {% if menuData.designation == 'user' and cardData != '' %}
+                            <li class="nav-item">
+                                <a style="font-size: 14px;" class="nav-link" href="{% url 'home' %}">Account</a>
+                            </li>
+                            {% endif %}
+                        {% else %}
+                        <li class="nav-item">
+                            <a style="font-size: 14px;" class="nav-link" href="{% url 'user_sign_in' %}">Sign in</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+
+                    <div class="d-lg-flex align-items-center d-none ms-auto">
+                        <!-- <i class="navbar-icon bi-telephone-plus me-3"></i> -->
+                        <a href="{% url 'add_appointment' %}" class="custom-btn btn">
+                            Take Appointment
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        <main>
+            <section class="hero d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-7 col-12">
+                            <div class="hero-text">
+                                <div class="hero-title-wrap d-flex align-items-center mb-4">
+                                    <h1 class="hero-title ms-3 mb-0">Hello !</h1>
+                                </div>
+
+                                <h2 class="mb-4">Have you taken appointment ?</h2>
+                                <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Let's begin</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-12 position-relative">
+                            <div class="hero-image-wrap">
+                                <img style="height: 100%; border-radius: 50%;" src="{% static 'frontend/images/vaccine.jpg' %}" class="hero-image img-fluid" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#535da1" fill-opacity="1" d="M0,160L24,160C48,160,96,160,144,138.7C192,117,240,75,288,64C336,53,384,75,432,106.7C480,139,528,181,576,208C624,235,672,245,720,240C768,235,816,213,864,186.7C912,160,960,128,1008,133.3C1056,139,1104,181,1152,202.7C1200,224,1248,224,1296,197.3C1344,171,1392,117,1416,90.7L1440,64L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path></svg>
+            </section>
+
+
+
+            <section class="about section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <img style="height: 402px !important;" src="{% static 'frontend/images/about.jpg' %}" class="about-image img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                            <div class="about-thumb">
+
+                                <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
+                                    <h2 class="text-white me-4 mb-0">About Vaccine</h2>
+                                </div>
+
+                                <!-- <h3 class="pt-2 mb-3"></h3> -->
+
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+            {% if menuData %}
+                {% if menuData.designation == 'user' and cardData != '' %}
+                <section class="featured section-padding" id="section_3">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-6 col-12">
+                                <div class="profile-thumb">
+                                    <div class="profile-title">
+                                        <h4 class="mb-0">Information</h4>
+                                    </div>
+
+                                    <div class="profile-body">
+                                        <p>
+                                            <span class="profile-small-title">Name</span> 
+                                            <span>{{ menuData.name }}</span>
+                                        </p>
+
+                                        <p>
+                                            <span class="profile-small-title">Email</span> 
+                                            <span>{{ menuData.email }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                                <div class="about-thumb">
+                                    <div class="row" style="margin-top: -5px;">
+                                        <div class="col-lg-6 col-6 featured-border-bottom py-2">
+                                            <a style="height: 70px; line-height: 45px;" href="{% url 'view_user_card' menuData.id %}" class="col-lg-12 col-12 custom-btn btn">
+                                                View Card
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6 featured-border-start featured-border-bottom ps-5 py-2">
+                                            <a style="height: 70px; line-height: 45px;" href="{% url 'view_user_card' menuData.id %}" class="col-lg-12 col-12 custom-btn btn">
+                                                Download Card
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6 pt-4">
+                                            <a style="height: 70px; line-height: 45px;" href="{% url 'view_user_vaccine' menuData.id %}" class="col-lg-12 col-12 custom-btn btn">
+                                                View Certificate
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6 featured-border-start ps-5 pt-4">
+                                            <a style="height: 70px; line-height: 22px;" href="{% url 'view_user_vaccine' menuData.id %}" class="col-lg-12 col-12 custom-btn btn">
+                                                Download Certificate
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
+            {% endif %}
+
+
+
+            <section class="featured section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+                        <h1>Vaccine Procedure</h1><hr style="margin-top: 15px; margin-bottom: 40px;">
+
+                        <div class="col-lg-4 col-12 text-center" style="padding: 15px;">
+                            <img width="60%" height="200px" src="{% static 'frontend/images/one.png' %}">
+
+                            <p class="">
+                                <h4>Online Registration</h4> 
+                                <span>After taking appointment for the vaccine the Vaccine Guard Org. team will send you notification about your vaccine card through email</span>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-4 col-12 text-center" style="padding: 15px;">
+                            <img width="60%" height="200px" src="{% static 'frontend/images/two.png' %}">
+
+                            <p class="">
+                                <h4>Email Notification</h4> 
+                                <span>When you will take the dose you will be updated through email also and will be able to download your vaccine certificate.</span>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-4 col-12 text-center" style="padding: 15px;">
+                            <img width="60%" height="200px" src="{% static 'frontend/images/three.png' %}">
+
+                            <p class="">
+                                <h4>Take Vaccine</h4> 
+                                <span>You can view the vaccine schedules by loging into our official website and can download your vaccine card for taking the dose from our clinic.</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12">
+                        <div class="copyright-text-wrap">
+                            <p class="mb-0">
+                                <span class="copyright-text">Copyright © {% now 'Y' %} <a href="#">VaccineGuard</a></span>
+                                <a rel="sponsored" href="" target="_blank">All rights reserved</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'frontend/js/jquery.min.js' %}"></script>
+        <script src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'frontend/js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'frontend/js/click-scroll.js' %}"></script>
+        <script src="{% static 'frontend/js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'frontend/js/magnific-popup-options.js' %}"></script>
+        <script src="{% static 'frontend/js/custom.js' %}"></script>
+
+    </body>
+</html>

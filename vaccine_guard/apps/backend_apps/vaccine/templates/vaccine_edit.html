@@ -1,0 +1,126 @@
+<!-- ======== START OF HEADER SECTION ========= -->
+{% include "includes/header.html" %}
+<!-- ======== END OF HEADER SECTION =========== -->
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'js/datetimepicker-master/build/jquery.datetimepicker.min.css' %}">
+
+    <!-- ======== START OF HEADER SECTION ========= -->
+    {% include "includes/aside.html" %}
+    <!-- ======== END OF HEADER SECTION =========== -->
+
+    <div class="all-content-wrapper">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-advance-area">
+
+            <!-- ======== START OF HEADER SECTION ========= -->
+            {% include "includes/menubar.html" %}
+            <!-- ======== END OF HEADER SECTION =========== -->
+
+
+            <!-- Single pro tab start-->
+            <div class="single-product-tab-area mg-b-30">
+                <!-- Single pro tab review Start-->
+                <div class="single-pro-review-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="review-tab-pro-inner">
+                                    <ul id="myTab3" class="tab-review-design text-left">
+                                        <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Update Vaccine Dose &nbsp;</a></li>
+                                    </ul>
+
+                                    <form id="" method="POST" action="" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div id="myTabContent" class="tab-content custom-product-edit">
+                                            <div class="product-tab-list tab-pane fade active in" id="description">
+                                                <div class="row">
+                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                        <div class="review-content-section">
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <h4 class="input-group-addon" style="text-align: left; padding: 15px;">Appointment : 
+                                                                    &nbsp; {{ cardData.appointment_id.appointment_date }} &nbsp; | &nbsp; {{ cardData.appointment_id.user_id.email }} &nbsp; | &nbsp; {{ cardData.appointment_id.user_id.name }}
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">Date One : </span>
+                                                                <input type="text" name="dose_one_date" style="background: #1b2a47; color:fff;" 
+                                                                value="{{ cardData.dose_one_date }}" class="form-control" readonly>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">One Status : </span>
+                                                                <select name="dose_one_status" class="form-control">
+                                                                    <option value="" disabled> -- Dose One Status -- </option>
+                                                                    <option {% if cardData.dose_one_status == 'pending' %} selected {% endif %} value="pending">Pending</option>
+                                                                    <option {% if cardData.dose_one_status == 'done' %} selected {% endif %} value="done">Done</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">Date Two : </span>
+                                                                <input type="text" name="dose_two_date" style="background: #1b2a47; color:fff;" 
+                                                                value="{{ cardData.dose_two_date }}" class="form-control" readonly>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">Two Status : </span>
+                                                                <select name="dose_two_status" class="form-control">
+                                                                    <option value="" disabled> -- Dose Two Status -- </option>
+                                                                    <option {% if cardData.dose_two_status == 'pending' %} selected {% endif %} value="pending">Pending</option>
+                                                                    <option {% if cardData.dose_two_status == 'done' %} selected {% endif %} value="done">Done</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">Date Three : </span>
+                                                                <input type="text" name="dose_three_date" style="background: #1b2a47; color:fff;" 
+                                                                value="{{ cardData.dose_three_date }}" class="form-control" readonly>
+                                                            </div>
+
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon">Three Status : </span>
+                                                                <select name="dose_three_status" class="form-control">
+                                                                    <option value="" disabled> -- Dose Three Status -- </option>
+                                                                    <option {% if cardData.dose_three_status == 'pending' %} selected {% endif %} value="pending">Pending</option>
+                                                                    <option {% if cardData.dose_three_status == 'done' %} selected {% endif %} value="done">Done</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="text-right custom-pro-edt-ds">
+                                                                <input type="submit" name="vaccine_edit" value="Update" class="btn btn-ctl-bt waves-effect waves-light m-r-10">
+                                                                <button type="button" class="btn btn-ctl-bt waves-effect waves-light">Discard</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- ===== START OF FOOTER SECTION ======== -->
+{% include "includes/footer.html" %}
+<!-- ===== END OF FOOTER SECTION ========== -->
